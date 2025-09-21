@@ -6,4 +6,4 @@ lastUpdated: true
 next: false
 prev: false
 ---
-# Unreally Journal
+# Coming Soon: Blog Post Area
