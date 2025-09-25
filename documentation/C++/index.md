@@ -7,4 +7,4 @@ next: false
 prev: false
 ---
 
-# Coming Soon: Blog Post Area
+# Coming Soon
