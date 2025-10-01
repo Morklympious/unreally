@@ -12,7 +12,7 @@ I learned about C++ pointers in 2010 and I was a college student traumatized by 
 
 Since coming back to a job where I have to interface with them, C++ has actually become way better than I thought, and Unreal Engine does a great job papering over a lot of the complexities that made me fucking hate myself when I had to manage pointers or remember remotely anything about them. 
 
-## The Unreal Pointers I Care About
+## The Unreal pointers I care about
 
 At its core, I care about maybe three pointers because they're the ones I use most often:
 - `TObjectPtr` for your typical pointers, these have the benefits of access tracking (your IDE knowing when they're used) over normal pointers.
@@ -98,3 +98,5 @@ loading paradigm to get what it points to!
  */
 MySoftPointer.ToSoftObjectPath()
 ```
+
+## Other Unreal pointers I don't use as much

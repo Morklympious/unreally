@@ -9,32 +9,22 @@ export default defineConfig({
   themeConfig : {
     // https://vitepress.dev/reference/default-theme-config
     nav : [
-      { text : "Home", link : "/" },
+      pathify("Home", "/"),
+      pathify("About", "/pages/about"),
     ],
-    search  : { provider : "local" },
-    sidebar : [
+    
+    logo     : "./logo.png",
+    logoLink : "https://github.com/morklympious",
+    search   : { provider : "local" },
+    sidebar  : [
       {
         text  : "Acquired Knowledge",
-
         items : [
           {
-            text      : "C++",
-            link      : "documentation/C++",
-            collapsed : true,
-            items     : [
-              pathify("Pointers", "/documentation/C++/pointers"),
-            ],
-          },
-        ],
-      },
-      {
-        text      : "Journal",
-        collapsed : true,
-        items     : [
-          {
-            text  : "Bullshit",
+            text  : "C++",
+            link  : "documentation/C++",
             items : [
-              
+              pathify("Pointers", "/documentation/C++/pointers"),
             ],
           },
         ],
