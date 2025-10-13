@@ -14,7 +14,7 @@ export default defineConfig({
     ],
     
     logo     : "./logo.png",
-    logoLink : "https://github.com/morklympious",
+    logoLink : "https://unreally.site",
     search   : { provider : "local" },
     sidebar  : [
       {
@@ -22,9 +22,22 @@ export default defineConfig({
         items : [
           {
             text  : "C++",
-            link  : "documentation/C++",
+            link  : "notes/cpp",
             items : [
-              pathify("Pointers", "/documentation/C++/pointers"),
+              pathify("Pointers", "/notes/cpp/pointers"),
+            ],
+          },
+          {
+            text  : "Unreal",
+            link  : "notes/unreal",
+            items : [
+              {
+                text  : "Common UI",
+                link  : "notes/unreal/common-ui",
+                items : [
+                  pathify("Common Action Widget", "/notes/unreal/common-ui/common-action-widget"),
+                ],
+              },
             ],
           },
         ],
@@ -34,5 +47,13 @@ export default defineConfig({
     socialLinks : [
       { icon : "github", link : "https://github.com/morklympious/unreally" },
     ],
+
+    lastUpdated : {
+      text          : "Updated at",
+      formatOptions : {
+        dateStyle : "full",
+        timeStyle : "medium",
+      },
+    },
   },
 });
