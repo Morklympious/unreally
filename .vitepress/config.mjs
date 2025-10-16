@@ -14,10 +14,10 @@ export default defineConfig({
     ],
     
     logo     : "./logo.png",
-    logoLink : "https://unreally.site",
+    logoLink : "/",
     search   : { provider : "local" },
-    sidebar  : [
-      {
+    sidebar  : {
+      "/notes/" : {
         text  : "Acquired Knowledge",
         items : [
           {
@@ -42,14 +42,20 @@ export default defineConfig({
           },
         ],
       },
-    ],
+      "/journal/" : {
+        text  : "Thoughts, I guess",
+        items : [
+           pathify("World Aware Getters", "/journal/15.10.25-static-world-aware-getter"),
+        ],
+      },
+    },
 
     socialLinks : [
       { icon : "github", link : "https://github.com/morklympious/unreally" },
     ],
 
     lastUpdated : {
-      text          : "Updated at",
+      text          : "Painstakingly updated",
       formatOptions : {
         dateStyle : "full",
         timeStyle : "medium",

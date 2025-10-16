@@ -30,18 +30,65 @@ Common UI and the Enhanced Input icon-lookup process are _roughly_ the same. The
 - Standard input actions reference a data table of type `CommonInputActionDataBase`
 - Enhanced Input actions reference the current input mapping contexts using the `UEnhancedInputLocalPlayerSubsystem`
 
+But it basically all starts with `GetIcon()`, which splits logic based on your Enhanced Input Support.
+
+Basically: **did you specify an Enhanced Input action, and is Enhanced Input enabled?**
+- Yes: `CommonUI::GetIconForEnhancedInputAction(...)`
+- No: `CommonUI::GetIconForInputActions(...);` 
+
 ### Without Enhanced Input (Common UI)
-1. The Action widget iterates through the input action array
-2. It grabs the appropriate Controller data (an asset of type `CommonInputBaseControllerData`) based on platform and input device
-3. If the action in the `CommonInputActionDatabase` has a corresponding hardware button specified for your current input device (Keyboard vs. Controller, etc.), it will run a lookup on the  `CommonInputBaseControllerData` for a corresponding input brush (icon).
-4. However, **If you've specified more than one input action** (e.g. you have a "set" of actions that together need their own icon), it looks through the `Input Brush Key Sets` area of the same `CommonInputBaseControllerData`.
+
+```c++
+FSlateBrush CommonUI::GetIconForInputActions(
+    const UCommonInputSubsystem* CommonInputSubsystem, 
+    const TArray<FDataTableRowHandle>& InputActions
+) {
+    /** Set up the Keys Array to add to */
+	TArray<FKey> Keys;
+
+    /** 
+        For each input action, we're going to get it's corresponding 
+        input information (FOR OUR CURRENT INPUT DEVICE) 
+    */
+	for (const FDataTableRowHandle& InputAction : InputActions)
+	{
+		if (const FCommonInputActionDataBase* Data = GetInputActionData(InputAction))
+		{
+            /** "TypeInfo" is a subsection of each row in the InputActionDatabase, like "Keyboard", "Gamepad", etc. */
+			const FCommonInputTypeInfo& TypeInfo = InputActionData->GetCurrentInputTypeInfo(CommonInputSubsystem);
+			Keys.Add(TypeInfo.GetKey());
+		}
+		else return *FStyleDefaults::GetNoBrush();
+	}
+
+    /** Empty brush to possibly populate */
+	FSlateBrush SlateBrush;
+
+    /** 
+     * This function iterates through all of the UCommonInputBaseControllerData classes and tries getting the brush
+     * on the ones that have an input type that matches the current input type mode, this will call
+     * UCommonInputBaseControllerData::TryGetInputBrush(FSlateBrush& OutBrush, const FKey& Key) (for the Controller data)
+     */
+	if (UCommonInputPlatformSettings::Get()->TryGetInputBrush(SlateBrush, Keys, CommonInputSubsystem->GetCurrentInputType(), CommonInputSubsystem->GetCurrentGamepadName()))
+	{
+		return SlateBrush;
+	}
+
+    /** If we don't find anything from above, return an empty brush. */
+	return *FStyleDefaults::GetNoBrush();
+}
+```
+Last to note: if the number of `Keys` is greater than 1, the system will attempt to look for an input brush key set, which is a combination of input actions that map to a single icon. Each `UCommonInputBaseControllerData` has an "Input Brush Keysets" section that is meant for mapping more than one action (2+) to a single action icon!
+
+
 
 ### With Enhanced Input (Enhanced Input)
-1. The Action Widget will take your input action and then query the `EnhancedInputLocalPlayerSubsystem` for currently active actions that could have a binding to a hardward input.
-2. If there is a hardware input bound for your currently active input device, and if that input is in an active Input Mapping Context, CommonUI will look up the icon in the `CommonInputBaseControllerData`
+1. `CommonUI::GetIconForEnhancedInputAction(CommonInputSubsystem, EnhancedInputAction)`
+2.  The Action Widget will call `CommonUI::GetFirstKeyForInputType` to query the `EnhancedInputLocalPlayerSubsystem` for currently active actions that could have a binding to `EnhancedInputAction`.
+2. If `EnhancedInputAction` is bound, and inside an active Input Mapping Context, CommonUI will look up the icon in the `CommonInputBaseControllerData`
 
 ## Additional Notes
-- None (for now)
+- I need to put a diagram in this MF. 
 
 
 

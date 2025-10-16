@@ -7,4 +7,4 @@ next: false
 prev: false
 ---
 
-# Coming Soon: Blog Post Area
+# I don't know what to put on this landing page.
