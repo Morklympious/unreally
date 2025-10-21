@@ -6,6 +6,7 @@ const pathify = (text, link) => ({ text, link });
 export default defineConfig({
   title       : "Unreally",
   description : "Unreal Engine User Interface Notes",
+  head        : [[ "link", { rel : "icon", href : "/favicon.png" }]],
   themeConfig : {
     // https://vitepress.dev/reference/default-theme-config
     nav : [
