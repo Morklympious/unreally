@@ -38,6 +38,12 @@ export default defineConfig({
                   pathify("Common Action Widget", "/notes/unreal/common-ui/common-action-widget"),
                 ],
               },
+              {
+                text  : "Concepts",
+                items : [
+                  pathify("Local Player Context", "/notes/unreal/concepts/local-player-context"),
+                ],
+              },
             ],
           },
         ],
