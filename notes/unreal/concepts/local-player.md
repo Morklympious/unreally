@@ -1,12 +1,13 @@
 ---
 outline: [2, 4]
 
+title: "The Local Player"
 footer: true
 lastUpdated: true
 next: false
 prev: false
 ---
-# FLocalPlayerContext
+# The Local Player
 
 The local player refers to a player on a client machine that is typically associated with a few things:
 - Player Controller (`APlayerController`)
@@ -19,7 +20,7 @@ The local player refers to a player on a client machine that is typically associ
 Wow, that's a lot of shit to keep track of. If you want to support local multiplayer or local couch co-op, _it gets worse!_
 Fortunately, we have `FLocalPlayerContext` to help with that. 
 
-## What is it?
+## Local Player Context?
 Local Player Context (`FLocalPlayerContext`) is a `struct` declared in `LocalPlayer.h` that will "wrap" a `ULocalPlayer` and give you
 an insane amount of access methods that you're probably already doing on your own. 
 
@@ -72,9 +73,10 @@ void UUserWidget::SetPlayerContext(const FLocalPlayerContext& InPlayerContext)
 	if (/** Widget Tree is valid */)
 	{
         /** 
-        * 1. For each widget, run a Lambda function that accepts a UWidget* parameter
-        * 2. Cast the lambda param to UUserWidget. If valid, call SetPlayerContext on it,
-        *    passing in the InPlayerContext
+        * 1. For each widget, run a Lambda function that accepts a 
+        *    UWidget* parameter
+        * 2. Cast the lambda param to UUserWidget. If valid, call 
+             SetPlayerContext on it, passing in the InPlayerContext
         */
 	}
 

@@ -22,16 +22,10 @@ export default defineConfig({
         text  : "Acquired Knowledge",
         items : [
           {
-            text  : "C++",
-            link  : "notes/cpp",
-            items : [
-              pathify("Pointers", "/notes/cpp/pointers"),
-            ],
-          },
-          {
             text  : "Unreal",
             link  : "notes/unreal",
             items : [
+               pathify("Pointers", "/notes/unreal/pointers"),
               {
                 text  : "Common UI",
                 link  : "notes/unreal/common-ui",
@@ -42,7 +36,8 @@ export default defineConfig({
               {
                 text  : "Concepts",
                 items : [
-                  pathify("Local Player Context", "/notes/unreal/concepts/local-player-context"),
+                  pathify("The Local Player", "/notes/unreal/concepts/local-player"),
+                  pathify("The Player Controller", "/notes/unreal/concepts/player-controller"),
                 ],
               },
             ],
@@ -52,7 +47,7 @@ export default defineConfig({
       "/journal/" : {
         text  : "Thoughts, I guess",
         items : [
-           pathify("World Aware Getters", "/journal/15.10.25-static-world-aware-getter"),
+           pathify("World Awareness & Getters", "/journal/15.10.25-static-world-aware-getter"),
         ],
       },
     },
