@@ -6,7 +6,29 @@ const pathify = (text, link) => ({ text, link });
 export default defineConfig({
   title       : "Unreally",
   description : "Unreal Engine User Interface Notes",
-  head        : [[ "link", { rel : "icon", href : "/favicon.png" }]],
+
+  head : [
+    [
+      "link",
+      {
+        rel  : "icon",
+        href : "/favicon.png",
+      },
+    ],
+    [
+      "script",
+      {
+        async : true,
+        src   : "https://www.googletagmanager.com/gtag/js?id=G-R22FRRDY0G",
+      },
+    ],
+    [
+      "script",
+      {},
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-R22FRRDY0G');",
+    ],
+  ],
+  
   themeConfig : {
     // https://vitepress.dev/reference/default-theme-config
     nav : [
