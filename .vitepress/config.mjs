@@ -6,7 +6,9 @@ const pathify = (text, link) => ({ text, link });
 export default defineConfig({
   title       : "Unreally",
   description : "Unreal Engine User Interface Notes",
-
+  sitemap     : {
+    hostname : "https://unreally.site",
+  },
   head : [
     [
       "link",
@@ -32,10 +34,10 @@ export default defineConfig({
   themeConfig : {
     // https://vitepress.dev/reference/default-theme-config
     nav : [
-      pathify("Home", "/"),
+      pathify("Notes", "/notes"),
+      pathify("Blog", "/journal"),
       pathify("About", "/pages/about"),
     ],
-    
     logo     : "./logo.png",
     logoLink : "/",
     search   : { provider : "local" },
