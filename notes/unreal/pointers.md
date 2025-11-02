@@ -1,7 +1,9 @@
 ---
 outline: [2, 4]
 
+title: Pointers
 footer: true
+draft: true
 lastUpdated: true
 next: false
 prev: false

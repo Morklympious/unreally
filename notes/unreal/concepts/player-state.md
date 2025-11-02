@@ -35,15 +35,15 @@ on your team, or in your party, or if they're on your friends list or they've ca
 `Pawn.h`:
 
 ```C++
-	/** 
-        If Pawn is possessed by a player, returns its Player State. 
-        Needed for network play as controllers are not replicated to clients. 
-    */
-	APlayerState* GetPlayerState() const { return PlayerState; }
+/** 
+    If Pawn is possessed by a player, returns its Player State. 
+    Needed for network play as controllers are not replicated to clients. 
+*/
+APlayerState* GetPlayerState() const { return PlayerState; }
 
-	/** Templated convenience version of GetPlayerState. */
-	template<class T>
-	T* GetPlayerState() const { return Cast<T>(PlayerState); }
+/** Templated convenience version of GetPlayerState. */
+template<class T>
+T* GetPlayerState() const { return Cast<T>(PlayerState); }
 ```
 
 With this in mind, it means we can just call: `MyPawn->GetPlayerState()`. Since it's replicated though
@@ -51,8 +51,8 @@ it _might not_ return a valid pointer, so if you want to get more event-driven, 
 for `APawn::OnPlayerStateChanged` in a subclass:
 
 ```C++
-	/** Called on both the client and server when ever SetPlayerState is called on this pawn. */
-	virtual void OnPlayerStateChanged(APlayerState* NewPlayerState, APlayerState* OldPlayerState) { }
+/** Called on both the client and server when ever SetPlayerState is called on this pawn. */
+virtual void OnPlayerStateChanged(APlayerState* NewPlayerState, APlayerState* OldPlayerState) { }
 ```
 If you pipe a delegate in there and `OnMyPlayerStateChangeDelegate.Broadcast(NewPlayerState)` you can 
 begin reacting to Player State changes.

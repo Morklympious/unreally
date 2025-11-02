@@ -1,6 +1,7 @@
 ---
 outline: [2, 4]
 
+title: "Common Action Widget"
 footer: true
 lastUpdated: true
 next: false

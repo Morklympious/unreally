@@ -1,13 +1,13 @@
 ---
 outline: [2, 4]
 
-title: "The Player Controller"
+title: "Player Controller"
 footer: true
 lastUpdated: true
 next: false
 prev: false
 ---
-# The Player Controller
+# Player Controller
 
 The Player Controller (`APlayerController`) refers to a "glue" layer between a human sitting in front of a screen interacting with the game
 and the game itself. 

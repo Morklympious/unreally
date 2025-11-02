@@ -1,13 +1,13 @@
 ---
 outline: [2, 4]
 
-title: "The Local Player"
+title: "Local Player"
 footer: true
 lastUpdated: true
 next: false
 prev: false
 ---
-# The Local Player
+# Local Player
 
 The local player refers to a player on a client machine that is typically associated with a few things:
 - Player Controller (`APlayerController`)

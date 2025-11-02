@@ -44,10 +44,11 @@ export default defineConfig({
         text  : "Acquired Knowledge",
         items : [
           {
-            text  : "Unreal",
-            link  : "notes/unreal",
             items : [
-               pathify("Pointers", "/notes/unreal/pointers"),
+              {
+                text  : "Unreal C++",
+                items : [ pathify("Pointers", "/notes/unreal/pointers") ],
+              },
               {
                 text  : "Common UI",
                 link  : "notes/unreal/common-ui",
@@ -58,8 +59,9 @@ export default defineConfig({
               {
                 text  : "Concepts",
                 items : [
-                  pathify("The Local Player", "/notes/unreal/concepts/local-player"),
-                  pathify("The Player Controller", "/notes/unreal/concepts/player-controller"),
+                  pathify("Player Controller", "/notes/unreal/concepts/player-controller"),
+                  pathify("Player State", "/notes/unreal/concepts/player-state"),
+                  pathify("Local Player", "/notes/unreal/concepts/local-player"),
                 ],
               },
             ],
