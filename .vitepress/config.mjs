@@ -73,7 +73,7 @@ export default defineConfig({
       "/journal/" : {
         text  : "Thoughts, I guess",
         items : [
-           pathify("World Awareness & Getters", "/journal/15.10.25-static-world-aware-getter"),
+           pathify("World Awareness & Getters", "/journal/entries/15.10.25-static-world-aware-getter"),
         ],
       },
     },
