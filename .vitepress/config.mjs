@@ -42,14 +42,17 @@ export default defineConfig({
           {
             items : [
               {
-                text  : "Unreal C++",
-                items : [ pathify("Pointers", "/notes/unreal/pointers") ],
-              },
-              {
                 text  : "Common UI",
                 link  : "notes/unreal/common-ui",
                 items : [
                   pathify("Common Action Widget", "/notes/unreal/common-ui/common-action-widget"),
+                ],
+              },
+              {
+                text  : "UMG Viewmodel",
+                link  : "notes/unreal/mvvm",
+                items : [
+                  pathify("The FieldNotify Interface", "/notes/unreal/mvvm/field-notifies"),
                 ],
               },
               {
@@ -60,6 +63,7 @@ export default defineConfig({
                   pathify("Local Player", "/notes/unreal/concepts/local-player"),
                 ],
               },
+              pathify("Pointers", "/notes/unreal/pointers"),
             ],
           },
         ],
@@ -67,7 +71,7 @@ export default defineConfig({
       "/journal/" : {
         text  : "Thoughts, I guess",
         items : [
-           pathify("World Awareness & Getters", "/journal/entries/15.10.25-static-world-aware-getter"),
+          pathify("World Awareness & Getters", "/journal/entries/15.10.25-static-world-aware-getter"),
         ],
       },
     },
