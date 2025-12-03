@@ -42,7 +42,38 @@ The global viewmodel repository lives in a game instance subsystem. I think it's
 I like this method, but I don't use it very often. It's good for stuff that won't change often, like the Player Controller or Local Player State, but otherwise if you're trying to shove a bunch of shit into the global repository because "I don't want to re-create and destroy viewmodels needlessly!" then you're probably optimizing prematurely. 
 
 ## Resolver
-I love these things. Coming Soon. 
+Resolver's are basically this combinatorial love-child of Manual, Create Instance, and Global creation methods. This is because they actually are their own `UObject` constructs that implement two useful functions:
+
+- `CreateInstance(const UClass* ExpectedType, const UUserWidget* UserWidget, const UMVVMView* View)`
+- `DestroyInstance(UObject* Viewmodel, UMVVMView* View)`
+
+These functions are absolute workhorses. `CreateInstance` isn't just a function for creating viewmodel instances, it's also capable of retrieving existing ones. The only thing `CreateInstance` cares about returning
+is a `UObject` that your widget will use as the viewmodel. 
+
+This is wonderful. When a widget declares a Viewmodel dependency and uses a resolver, the `CreateInstance` function receives that viewmodel's class type, the widget that the viewmodel is resolving for, and the view attached to the widget via it's extension system. Since the resolver has access to the `UserWidget` in the `CreateInstance` method, it has access to a **world-aware** object. This means the resolver can get anything from that widget. The Player Controller, Player State, Local Player, any game instance subsystem, you name it. 
+
+If you have a viewmodel that needs access to the local player pawn, you can provide that with a resolver without having to manually bind from another viewmodel or specify a "magic string" to get a global viewmodel. For example, if we were writing code in C++ to provide a viewmodel we created with the Player Controller, we could do that all in one convenient place:
+
+```C++
+UMyViewModelResolver::CreateInstance(const UClass* ExpectedType, const UUserWidget* UserWidget, const MVVMView* View) {
+    UMyPlayerControllerViewModel* MyInstance = NewObject<MyPlayerControllerViewModel>(UserWidget);
+
+    APlayerController* MyPlayerController = UserWidget->GetOwningPlayer();
+
+    MyInstance->InitializeWithPlayerController(MyPlayerController);
+
+    return MyInstance;
+}
+```
+
+Suddenly, all of the logic of creating a viewmodel and supplying its dependency is encapsulated in the resolver! 
+Destroying is much the same, where you'd probably ask the viewmodel to run its teardown logic before it's destroyed.
+
+This has massive implications, though! You can use a resolver to give control in the editor. You could write a resolver that 
+can create a viewmodel globally if it doesn't exist, and manually track the number of times the resolver has run such that when the 
+last widget that subscribes to it is destroyed, you can remove it from the global repository. 
+
+Resolvers are incredibly flexible both in C++ and Blueprint. USE THEM. 
 
 ## Property Path
 I don't know enough about these, but I'm gonna learn so I can write about 'em. 
