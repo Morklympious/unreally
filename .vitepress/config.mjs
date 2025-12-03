@@ -53,6 +53,7 @@ export default defineConfig({
                 link  : "notes/unreal/mvvm",
                 items : [
                   pathify("The FieldNotify Interface", "/notes/unreal/mvvm/field-notifies"),
+                  pathify("Creating Viewmodels", "/notes/unreal/mvvm/creation-types" )
                 ],
               },
               {
