@@ -19,9 +19,9 @@ export default defineConfig({
     ],
     [
       "script",
-      { async : true, src : "https://www.googletagmanager.com/gtag/js?id=G-R22FRRDY0G"},
+      { async : true, src : "https://www.googletagmanager.com/gtag/js?id=G-R22FRRDY0G" },
     ],
-    ["script", {}, "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-R22FRRDY0G');"],
+    [ "script", {}, "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-R22FRRDY0G');" ],
   ],
   
   themeConfig : {
@@ -30,7 +30,7 @@ export default defineConfig({
       pathify("Notes", "/notes"),
       pathify("Blog", "/journal"),
       pathify("About", "/pages/about"),
-      pathify("Resources", "/pages/other-resources")
+      pathify("Resources", "/pages/other-resources"),
     ],
     logo     : "./logo.png",
     logoLink : "/",
@@ -53,7 +53,7 @@ export default defineConfig({
                 link  : "notes/unreal/mvvm",
                 items : [
                   pathify("The FieldNotify Interface", "/notes/unreal/mvvm/field-notifies"),
-                  pathify("Creating Viewmodels", "/notes/unreal/mvvm/creation-types" )
+                  pathify("Creating Viewmodels", "/notes/unreal/mvvm/creation-types"),
                 ],
               },
               {
@@ -73,6 +73,7 @@ export default defineConfig({
         text  : "Thoughts, I guess",
         items : [
           pathify("World Awareness & Getters", "/journal/entries/15.10.25-static-world-aware-getter"),
+          pathify("Logging that Doesn't Suck", "/journal/entries/2026.02.04-logging-that-doesnt-suck"),
         ],
       },
     },
