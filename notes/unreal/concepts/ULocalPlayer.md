@@ -7,22 +7,15 @@ lastUpdated: true
 next: false
 prev: false
 ---
-# Local Player
+# Local Player (`ULocalPlayer`)
 
-The local player refers to a player on a client machine that is typically associated with a few things:
-- Player Controller (`APlayerController`)
-- Player State (`APlayerState`)
-- Pawn (`APawn`)
-- Game State (`AGameState`)
-- Game Mode (`AGameModeBase`)
-- Game Instance (`UGameInstance`)
+The local player refers to an object on a client machine that represents the player. A local player is created when registered to a world's `UGameInstance`, and is then initialized and eventually ready to interact with the game.
 
-Wow, that's a lot of shit to keep track of. If you want to support local multiplayer or local couch co-op, _it gets worse!_
-Fortunately, we have `FLocalPlayerContext` to help with that. 
+## Initialization 
+The local player is created after the `UWorld` is constructed and `UGameInstance` is assigned to the world. The `UGameInstance` calls `CreateLocalPlayer` which creates a `ULocalPlayer` and also causes the world to create a [player controller](./player-controller.md) for the player by calling `SetPlayer(NewLocalPlayer)` on the controller. The Local Player is registered with the `UGameInstance` as a local player, passing in a unique identifier for the player in this particular game instance. 
 
-## Local Player Context?
-Local Player Context (`FLocalPlayerContext`) is a `struct` declared in `LocalPlayer.h` that will "wrap" a `ULocalPlayer` and give you
-an insane amount of access methods that you're probably already doing on your own. 
+## Local Player Context
+Local Player Context (`FLocalPlayerContext`) is a `struct` declared in `LocalPlayer.h` that will "wrap" a `ULocalPlayer` and give you an insane amount of access methods that you're probably already doing on your own. 
 
 :::info
 This is not a blueprint exposed struct.

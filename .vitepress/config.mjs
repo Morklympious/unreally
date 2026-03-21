@@ -60,9 +60,9 @@ export default defineConfig(withSidebar({
               {
                 text  : "Concepts",
                 items : [
-                  pathify("Player Controller", "/notes/unreal/concepts/player-controller"),
-                  pathify("Player State", "/notes/unreal/concepts/player-state"),
-                  pathify("Local Player", "/notes/unreal/concepts/local-player"),
+                  pathify("APlayerController", "/notes/unreal/concepts/player-controller"),
+                  pathify("APlayerState", "/notes/unreal/concepts/player-state"),
+                  pathify("ULocalPlayer", "/notes/unreal/concepts/local-player"),
                 ],
               },
               pathify("Pointers", "/notes/unreal/pointers"),

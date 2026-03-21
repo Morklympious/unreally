@@ -8,11 +8,9 @@ prev: false
 index: true
 ---
 
-
 <script setup>
     import { data as posts } from "./data/notes.data.js";
 </script>
-
 
 # My Notes
 <ul>

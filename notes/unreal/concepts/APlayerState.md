@@ -9,9 +9,11 @@ prev: false
 ---
 # Player State (`APlayerState`)
 
-The Player State (`APlayerState`) is... in terms I'll probably remember: "A box of random player related shit". The Player State replicates to **all clients**, which means if you need a place to store things **all players** need to know about, you store it on the Player State.
+The Player State (`APlayerState`) is... in terms I'll probably remember: "A box of random player related shit". 
+I say this because from my understanding, the player state replicates to **all clients**, whereas the Player Controller only exists on the server and the owning client (it's not replicated to other clients).
 
-Literally, the name is **Player State**. It's stateful information about the player that you might want to know.
+## Initialization
+Player state initializes shortly after the [local player](./local-player.md) is created and a [player controller](player-controller.md) is assigned to it. After the player controller's creation, the player state is created and attached to the player controller. 
 
 ## What You Should Know
 - Player State is information about a player, **replicated to all clients, not just the local client**.
