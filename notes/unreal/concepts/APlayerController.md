@@ -7,7 +7,8 @@ lastUpdated: true
 next: false
 prev: false
 ---
-# Player Controller
+
+# Player Controller (`APlayerController`)
 
 The Player Controller (`APlayerController`) refers to a "glue" layer between a human sitting in front of a screen interacting with the game
 and the game itself. 
