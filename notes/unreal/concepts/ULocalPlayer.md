@@ -12,7 +12,7 @@ prev: false
 The local player refers to an object on a client machine that represents the player. A local player is created when registered to a world's `UGameInstance`, and is then initialized and eventually ready to interact with the game.
 
 ## Initialization 
-The local player is created after the `UWorld` is constructed and `UGameInstance` is assigned to the world. The `UGameInstance` calls `CreateLocalPlayer` which creates a `ULocalPlayer` and also causes the world to create a [player controller](./player-controller.md) for the player by calling `SetPlayer(NewLocalPlayer)` on the controller. The Local Player is registered with the `UGameInstance` as a local player, passing in a unique identifier for the player in this particular game instance. 
+The local player is created after the `UWorld` is constructed and `UGameInstance` is assigned to the world. The `UGameInstance` calls `CreateLocalPlayer` which creates a `ULocalPlayer` and also causes the world to create a [player controller](./APlayerController.md) for the player by calling `SetPlayer(NewLocalPlayer)` on the controller. The Local Player is registered with the `UGameInstance` as a local player, passing in a unique identifier for the player in this particular game instance. 
 
 ## Local Player Context
 Local Player Context (`FLocalPlayerContext`) is a `struct` declared in `LocalPlayer.h` that will "wrap" a `ULocalPlayer` and give you an insane amount of access methods that you're probably already doing on your own. 

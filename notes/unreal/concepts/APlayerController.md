@@ -45,7 +45,7 @@ In general, it's a construct that is shared by many pieces of the game, and as s
 - `UUserWidget` has `GetOwningPlayer()`
 - `UWorld` has `GetPlayerControllerIterator()`, `GetFirstPlayerController()`, `GetFirstPlayerController()`
 
-If you have any object that is [World Aware](/journal/entries/15.10.25-static-world-aware-getter.md), then you basically have a way
+If you have any object that is [World Aware](/journal/entries/static-world-aware-getter.md), then you basically have a way
 to hassle-free retrieve the Player Controller
 
 ## Client and Server
@@ -59,7 +59,7 @@ Here's what I've found out after suffering long enough:
 - Every Player Controller is accessible via `GetWorld()->GetPlayerControllerIterator()`
 
 **On The Client**:
-- Has **only its own** Player Controller, meant to represent the [Local Player](local-player.md)
+- Has **only its own** Player Controller, meant to represent the [Local Player](./ULocalPlayer.md)
 - **DOES NOT** have Player Controllers for other networked players
 - `APlayerState` exists instead of a Player Controller for discovering other player's information
 
