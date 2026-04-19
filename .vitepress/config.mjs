@@ -3,8 +3,7 @@ import { withSidebar } from "vitepress-sidebar";
 
 const pathify = (text, link) => ({ text, link });
 
-// https://vitepress.dev/reference/site-config
-export default defineConfig(withSidebar({
+const _config = {
   title       : "Unreally",
   description : "Unreal Engine User Interface Notes",
   sitemap     : {
@@ -91,4 +90,7 @@ export default defineConfig(withSidebar({
       },
     },
   },
-}));
+};
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig(withSidebar(_config), { useTitleFromFileHeading: true });

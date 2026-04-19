@@ -14,3 +14,6 @@ It almost goes without saying, but this site was a godsend (and still is!) when 
 This is an incredible resource that one Xist (as they call themself online) has created in their own exploration of Unreal. It's a lot like this site in that it feels much more like one person trying to leave breadcrumbs for their future self. A lot of the exploration centers around the Lyra Sample Game and goes in depth into the systems that that sample game implements and integrates.
 
 - [X157](https://x157.github.io/)
+
+## Zomg
+Zomg has another notable and wonderful set of resources for their own Unreal Engine notes. 
