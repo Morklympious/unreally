@@ -16,7 +16,7 @@ An actor is basically the lifeblood of any game. Anything you can kind of spawn 
 ## What You Should Know
 - Actors are typically the "spawnable" things you place in the world or in the level. 
 - There are also actors that DON'T have a spawnable representation, like `APlayerState` and `AGameMode`
-- `AController` is a unique case that doesn't _technically_ have a visible presentation, but that needs to be spawned in the world and linked to a [Local Player]("./local-player.md").
+- `AController` is a unique case that doesn't _technically_ have a visible presentation, but that needs to be spawned in the world and linked to a [Local Player](./ULocalPlayer.md).
 
 ## Spawning Actors
 The `UWorld` instance of your game has the ability to spawn actors, there's `SpawnActor` and `SpawnActorDeferred`
