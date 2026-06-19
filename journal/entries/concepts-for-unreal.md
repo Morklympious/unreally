@@ -154,7 +154,6 @@ With this new concept backed implementation, you can pass:
 This is useful for mocking data for testing, or for generalizing what would otherwise be more-verbose utility code to account for multiple different types as long as they are structurally similar.
 
 ## Wrapping Up
-
 Concepts are super cool! You can use them to unify many codepaths in Unreal, especially when you're spending time making separate calls to get things like the `UWorld` or the `APlayerController` from a Widget, an Actor, a Subsystem, or anything else!
 
 You can specify concept backed functions and create blueprint compatible shims that call into them with the appropriate types. Safety in C++ ultimately flows over to safety in Blueprint. 

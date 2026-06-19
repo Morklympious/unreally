@@ -13,22 +13,21 @@ The local player refers to a player on a client machine that is typically associ
 - Player Controller (`APlayerController`)
 - Player State (`APlayerState`)
 - Pawn (`APawn`)
-- Game State (`AGameState`)
-- Game Mode (`AGameModeBase`)
-- Game Instance (`UGameInstance`)
 
-Wow, that's a lot of shit to keep track of. If you want to support local multiplayer or local couch co-op, _it gets worse!_
-Fortunately, we have `FLocalPlayerContext` to help with that. 
+To a lesser extent, the local player is associated also with the `UGameInstance`, since the game instance is what registers local players to the game instance.
 
-## Local Player Context?
+This is a lot to track! If you want to support local multiplayer or local couch co-op, _it gets worse!_
+Fortunately, we have this utility struct called `FLocalPlayerContext` to help you wrap useful functionality for a local player.
+
+## The `FLocalPlayerContext` Struct
 Local Player Context (`FLocalPlayerContext`) is a `struct` declared in `LocalPlayer.h` that will "wrap" a `ULocalPlayer` and give you
 an insane amount of access methods that you're probably already doing on your own. 
 
 :::info
-This is not a blueprint exposed struct.
+This is not a blueprint exposed struct. It's more of a utility for just C++.
 :::
 
-Here are some problems `FLocalPlayerContext` can solve for you:
+`FLocalPlayerContext` can solve a few common use-cases for you:
 
 ### Consistent Access Methods
 ```C++
